@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-box">
+            <h1>Tic-Tac-Toe</h1>
+            
+            <div class="game-controls">
+                <div class="mode-selection">
+                    <h2>Game Mode</h2>
+                    <div class="mode-options">
+                        <button id="pvp-btn" class="active">Player vs Player</button>
+                        <button id="pvc-btn">Player vs Computer</button>
+                    </div>
+                </div>
+                
+                <div id="pvc-options" class="hidden">
+                    <h2>Difficulty</h2>
+                    <div class="difficulty-options">
+                        <button id="easy-btn" class="active">Easy</button>
+                        <button id="hard-btn">Hard</button>
+                    </div>
+                    <h2>Play As</h2>
+                    <div class="play-as-options">
+                        <button id="first-btn" class="active">First (X)</button>
+                        <button id="second-btn">Second (O)</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-info">
+                <div id="status-message">Player X's turn</div>
+            </div>
+            
+            <div class="game-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            
+            <button id="reset-btn">New Game</button>
+        </div>
+    </div>
+    
+    <audio id="move-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3"></audio>
+    <audio id="win-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+    <audio id="draw-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-arcade-lose-2027.mp3"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>

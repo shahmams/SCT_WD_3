@@ -1,0 +1,267 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #f5e9dc;
+    background-image: radial-gradient(#d9c7b8 1px, transparent 1px);
+    background-size: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-box {
+    width: 100%;
+    background-color: #f8f1e9;
+    border-radius: 12px;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 0 6px #d4b08a,
+        0 0 0 10px #8b5a2b;
+    padding: 12px;
+    text-align: center;
+}
+
+h1 {
+    color: #5c3a21;
+    margin: 5px 0 8px 0;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Game Controls (Compact for PvP & PvC) */
+.game-controls {
+    margin-bottom: 8px;
+    background-color: #e8d5c5;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
+
+.mode-options {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+/* Computer Options (Ultra-Compact) */
+#pvc-options {
+    margin-top: 6px;
+    padding: 6px 4px 4px 4px;
+}
+
+.difficulty-options, .play-as-options {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+h2 {
+    font-size: 0.8rem;
+    color: #5c3a21;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+
+button {
+    background-color: #a78a6e;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    margin: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    font-size: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    min-width: 65px;
+}
+
+button:hover {
+    background-color: #8b5a2b;
+    transform: translateY(-1px);
+}
+
+button.active {
+    background-color: #5c3a21;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2) inset;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Game Info (Compact) */
+.game-info {
+    margin-bottom: 8px;
+    padding: 4px;
+    background-color: #e8d5c5;
+    border-radius: 5px;
+}
+
+#status-message {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #5c3a21;
+    padding: 1px 0;
+}
+
+/* Game Board (Compact) */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 8px;
+    background-color: #d4b08a;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.cell {
+    aspect-ratio: 1;
+    background-color: #f8f1e9;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.cell:hover {
+    background-color: #e8d5c5;
+    transform: scale(1.03);
+}
+
+.cell.x {
+    color: #5c3a21;
+}
+
+.cell.o {
+    color: #8b5a2b;
+}
+
+.cell.win {
+    background-color: #d9c7b8;
+    box-shadow: 0 0 6px gold;
+}
+
+/* Reset Button (Compact) */
+#reset-btn {
+    background-color: #8b5a2b;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 16px;
+    margin-top: 2px;
+    transition: all 0.2s;
+}
+
+#reset-btn:hover {
+    background-color: #5c3a21;
+    transform: translateY(-1px) scale(1.03);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
+    .game-box {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+        margin: 4px 0 6px 0;
+    }
+    
+    button {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+        min-width: 55px;
+    }
+    
+    .cell {
+        font-size: 1.4rem;
+    }
+    
+    #status-message {
+        font-size: 0.8rem;
+    }
+    
+    #pvc-options {
+        padding: 4px 2px 2px 2px;
+    }
+}
+/* Pop-up Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background-color: #f8f1e9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 300px;
+    width: 90%;
+    border: 3px solid #8b5a2b;
+}
+
+.modal-content h2 {
+    color: #5c3a21;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.modal-button {
+    background-color: #8b5a2b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.modal-button:hover {
+    background-color: #5c3a21;
+    transform: translateY(-2px);
+}
